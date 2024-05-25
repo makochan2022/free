@@ -61,6 +61,7 @@ else
 	colo=$(grep -w "($(echo ${temp[@]} | sed -e 's/ /\n/g' | grep colo= | cut -f 2- -d'='))" colo.txt | awk -F"-" '{print $1}')
 fi
 clear
+echo $anycast | termux-clipboard-set
 echo "优选IP $anycast"
 echo "公网IP $publicip"
 if [ $tls == 1 ]
