@@ -61,7 +61,6 @@ else
 	colo=$(grep -w "($(echo ${temp[@]} | sed -e 's/ /\n/g' | grep colo= | cut -f 2- -d'='))" colo.txt | awk -F"-" '{print $1}')
 fi
 clear
-echo $anycast | termux-clipboard-set
 echo "优选IP $anycast"
 echo "公网IP $publicip"
 if [ $tls == 1 ]
@@ -76,6 +75,7 @@ echo "峰值速度 $max kB/s"
 echo "往返延迟 $avgms 毫秒"
 echo "数据中心 $colo"
 echo "总计用时 $[$endtime-$starttime] 秒"
+echo $anycast | termux-clipboard-set
 }
 
 function rtthttps(){
